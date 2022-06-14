@@ -22,3 +22,25 @@ Ex: export default Navbar
 
 - Para utilizar o componente devemos declará-lo como uma tag html. Ex: <Navbar />.
 Na declaração do componente podemos inserir algumas propriedades.
+
+### Componente Funcionais e Componentes de Classe
+
+- Componentes funcionais são componentes de funções, ou seja, componentes criados 
+a partir de funções que retornam um JSX. Quando um componente funcional contém 
+um estado chamamos ele de 'stateful component' e quando não contém estados 
+chamamos de 'stateless component'
+
+function App () {
+  return (JSX)
+}
+
+- Componentes de classe são componentes criados a partir de uma classe e que 
+devem ser extendidas de um objeto 'Component' de React. Realizam a mesmo função 
+de componente funcional no entanto para renderizarmos um JSX devemos invocar o 
+método render() e retornar o JSX.
+
+class App extends Component {
+  render() {
+    return (JSX)
+  }
+}
