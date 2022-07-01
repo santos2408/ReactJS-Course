@@ -1,51 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
 
 // ============== Seção 2: React ( O Básico ) ==============
 
 class App extends Component {
-  constructor (props) {
-    super(props)
-
-    this.handleParagraphClicked = this.handleParagraphClicked.bind(this) // precisa quando se usa function declartion
-    this.state = {
-      name: 'Roger Santos',
-      counter: null
-    }
-  }
-
-  handleParagraphClicked () {
-    if (this.state.name === 'Roger Santos') {
-      this.setState({ name: 'Tudo bem?' })
-      return
-    }
-    this.setState({ name: 'Roger Santos' })
-  }
-
-  handleLinkClicked = event => { // não precisa de bind, pois pega o this do escopo de onde ta declarada
-    event.preventDefault()
-    const { counter } = this.state
-    this.setState({ counter: counter + 1 })
+  state = {
+    posts: [
+      {
+        id: 1,
+        title: 'Titulo 01',
+        body: 'Com este commit, um erro não identificado causou o bug de estados estáticos nos componentes da UI.'
+      },
+      {
+        id: 2,
+        title: 'Titulo 02',
+        body: 'A equipe de suporte precisa saber que a normalização da data corrigiu o bug no parse retroativo do DOM'
+      },
+      {
+        id: 3,
+        title: 'Titulo 03',
+        body: 'Nesse pull request, o deploy automatizado no Heroku otimizou a renderização do carregamento de JSON'
+      }
+    ]
   }
 
   render() {
-    const { name, counter } = this.state
+    const { posts } = this.state
 
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p onClick={this.handleParagraphClicked}>Olá, {name} {counter}</p>
-          <a 
-            onClick={this.handleLinkClicked}
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer">
-            Learn React
-          </a>
-        </header>
+        {posts.map(({ id, title, body }) => (
+          <article key={id}>
+            <h1>{title}</h1>
+            <p>{body}</p>
+          </article>
+        ))}
       </div>
     );
   }

@@ -1,6 +1,4 @@
 
-# Módulo 1 do Curso
-
 ## React Básico
 
 - Funções iniciadas por letra maiúscula indicam que são componentes. Dentro 
@@ -99,3 +97,21 @@ isso acontece e porque o arrow function funciona.
 setState(state) e indicar a mudança que ocorrerá no estado. Assim que um evento 
 for disparado, por exemplo um clique, o render() será chamada novamente e irá 
 atualizar apenas aquele pedaço do componente.
+
+### State com arrays e objetos
+
+- Para trabalharmos com arrays que se encontram dentro do state, se quisermos 
+interar sobre eles devemos usar o método map(), retornando um JSX desejado. Vale 
+lembrar que sempre quando iteramos por elementos o JSX retornado deve conter uma 
+chave 'key' que deve ser única para aquele JSX retornado.
+
+- Isso porque uma lista de itens iterados são semelhantes e o React precisa de 
+uma forma rápida para identificar qual elemento o seu estado foi alterado para 
+ele poder atualizar sem precisar renderizar todos os itens novamente. Deve-se 
+colocar a 'key' no primeiro elemento retornado pela iteração.
+
+- Se a iteração retornar mais de um elemento, esse retorno deve ter um elemento 
+raiz que irá agrupar todos esses filhos, pois é necessário que o elemento 'pai'
+contenha a key para o React identificar.
+
+## Lifecycle Methods (Métodos de Ciclo de Vida)
