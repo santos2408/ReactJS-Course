@@ -61,3 +61,41 @@ class App extends Component {
     return (JSX)
   }
 }
+
+### Componentes de Classe com estado (stateful)
+
+- De forma resumida, estados são dados que o componente utiliza, é similar ao 
+props mas é privado e totalmente controlado pelo componente. Toda vez que o estado 
+muda, o método render irá renderizar novamente o componente pois houve uma mudança 
+de estado dentro do componente.
+
+- Veremos como criar um estado dentro de um componente com classe, mais a frente 
+veremos como criar com Hooks também.
+
+- Dentro da classe, o método constructor sempre irá receber como parâmetro as 
+props e também a super para invocar o constructor da classe extendida. Podemos 
+definir uma propriedade 'state' dentro do constructor que será um objeto vazio 
+que alertará para o React que se suas propriedades forem alteradas, o render() 
+deve ser executado novamente. As propriedades do estado serão os dados que o 
+componente contém.
+
+- Vale lembrar que, quando declaramos métodos dentro da classe, o React não irá 
+fazer o 'binding' do this do método com a classe, ou seja, o this do método não 
+irá referenciar o objeto no qual está trabalhando. Para evitarmos esse problema, 
+devemos fazer uma 'bound method', criando uma propriedade com o nome do método, 
+atribuindo esse método com o encadeamento do método bind passando o this do objeto.
+
+- Com isso poderemos trabalhar com this tranquilamente dentro dos métodos. Mas 
+perceba que isso vale apenas para as functions declarations. Se trabalharmos com 
+métodos escritos em arrow funcions, esse problema desaparece, pois as arrow functions 
+consideram o this do escopo onde está sendo declarada, ou seja, irá considerar o 
+objeto de onde ela está, portando o this do objeto desejado.
+
+- Para evitar fazer binding do this toda vez, pode ser uma prática recomendável 
+utilizar arrow functions para os métodos, mas é imporante ter a noção do porque 
+isso acontece e porque o arrow function funciona.
+
+- Para de fato re-renderizarmos o estado do componente, devemos invocar o método 
+setState(state) e indicar a mudança que ocorrerá no estado. Assim que um evento 
+for disparado, por exemplo um clique, o render() será chamada novamente e irá 
+atualizar apenas aquele pedaço do componente.
