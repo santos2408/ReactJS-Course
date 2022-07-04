@@ -15,30 +15,31 @@ também através de <React.Fragment />.
 
 - Dentro do componente, como estamos escrevendo JSX, ou seja, estamos dentro de 
 um arquivo JS, algumas nomenclaturas podem ser palavras reservadas do JS como 
-o atribute 'class' do HTML, portanto o atribute 'class' dentro do JSX será 
-chamado de 'className'.
+o atribute 'class' do HTML ou o 'for' do label, portanto o atribute 'class' 
+dentro do JSX será chamado de 'className' e o 'for' será chamado de 'forName', 
+além de outros que veremos futuramente.
 
 - Para usarmos um componente em outro local do projeto, ao final da declaração 
 dele devemos inserir um 'export default 'nome do componente'.
 Ex: export default Navbar
 
-- Para utilizar o componente devemos declará-lo como uma tag html. Ex: <Navbar />.
-Na declaração do componente podemos inserir algumas propriedades que veremos nas 
-aulas mais a frente.
+- Para utilizar o componente devemos importar e declará-lo como uma tag html. 
+Ex: <Navbar />. Na declaração do componente podemos inserir algumas propriedades
+que veremos nas aulas mais a frente.
 
 ### Componente Funcionais e Componentes de Classe
 
 - Componentes funcionais são componentes de funções, ou seja, componentes criados 
 a partir de funções que retornam um JSX. Quando um componente funcional contém 
 um estado chamamos ele de 'stateful component' e quando não contém estados 
-chamamos de 'stateless component'. Amtigamente componentes que continham estado 
+chamamos de 'stateless component'. Antigamente componentes que continham estado 
 deveriam ser classes e componentes sem estado poderiam ser funções ou classes.
 
 - Hoje em dia podemos ter funções usando Hooks, que são usados para controlar o 
 estado do componente. Portanto, hoje em dia não é necessária saber a diferença 
 entre componente 'stateless ou statefull', hoje identificamos apenas componentes 
 que tem ou não estado. Se são 'statefull ou stateless', só isso, independente se 
-é função ou classe.
+estiver usando função ou classe.
 
 - Lembre-se que o que o componente retorna não é exatamente o componente e sim 
 um elemento, que é um bloco de construção da aplicação, o que queremos ver na tela.
@@ -86,12 +87,12 @@ atribuindo esse método com o encadeamento do método bind passando o this do ob
 - Com isso poderemos trabalhar com this tranquilamente dentro dos métodos. Mas 
 perceba que isso vale apenas para as functions declarations. Se trabalharmos com 
 métodos escritos em arrow funcions, esse problema desaparece, pois as arrow functions 
-consideram o this do escopo onde está sendo declarada, ou seja, irá considerar o 
-objeto de onde ela está, portando o this do objeto desejado.
+consideram o this do escopo léxico onde está sendo declarada, ou seja, irá considerar o 
+objeto de onde ela está, portanto o this do objeto desejado.
 
 - Para evitar fazer binding do this toda vez, pode ser uma prática recomendável 
 utilizar arrow functions para os métodos, mas é imporante ter a noção do porque 
-isso acontece e porque o arrow function funciona.
+isso acontece e porque a arrow function funciona.
 
 - Para de fato re-renderizarmos o estado do componente, devemos invocar o método 
 setState(state) e indicar a mudança que ocorrerá no estado. Assim que um evento 
