@@ -36,7 +36,7 @@ chamamos de 'stateless component'. Antigamente componentes que continham estado
 deveriam ser classes e componentes sem estado poderiam ser funções ou classes.
 
 - Hoje em dia podemos ter funções usando Hooks, que são usados para controlar o 
-estado do componente. Portanto, hoje em dia não é necessária saber a diferença 
+estado do componente. Portanto, hoje em dia não é necessário saber a diferença 
 entre componente 'stateless ou statefull', hoje identificamos apenas componentes 
 que tem ou não estado. Se são 'statefull ou stateless', só isso, independente se 
 estiver usando função ou classe.
@@ -64,18 +64,18 @@ class App extends Component {
 ### Componentes de Classe com estado (stateful)
 
 - De forma resumida, estados são dados que o componente utiliza, é similar ao 
-props mas é privado e totalmente controlado pelo componente. Toda vez que o estado 
-muda, o método render irá renderizar novamente o componente pois houve uma mudança 
-de estado dentro do componente.
+props, que veremos mais a frente, mas é privado e totalmente controlado pelo 
+componente. Toda vez que o estado muda, o método render irá renderizar novamente 
+o componente pois houve uma mudança de estado dentro do componente.
 
 - Veremos como criar um estado dentro de um componente com classe, mais a frente 
 veremos como criar com Hooks também.
 
 - Dentro da classe, o método constructor sempre irá receber como parâmetro as 
-props e também a super para invocar o constructor da classe extendida. Podemos 
-definir uma propriedade 'state' dentro do constructor que será um objeto vazio 
-que alertará para o React que se suas propriedades forem alteradas, o render() 
-deve ser executado novamente. As propriedades do estado serão os dados que o 
+props e também a super para invocar o constructor da classe extendida (Component). 
+Podemos definir uma propriedade 'state' dentro do constructor que será um objeto 
+vazio que alertará para o React que se suas propriedades forem alteradas, o render() 
+deve ser executado novamente. As propriedades de 'state' serão os dados que o 
 componente contém.
 
 - Vale lembrar que, quando declaramos métodos dentro da classe, o React não irá 
@@ -96,7 +96,7 @@ isso acontece e porque a arrow function funciona.
 
 - Para de fato re-renderizarmos o estado do componente, devemos invocar o método 
 setState(state) e indicar a mudança que ocorrerá no estado. Assim que um evento 
-for disparado, por exemplo um clique, o render() será chamada novamente e irá 
+for disparado, por exemplo um clique, o render() será chamado novamente e irá 
 atualizar apenas aquele pedaço do componente.
 
 ### State com arrays e objetos
@@ -108,8 +108,9 @@ chave 'key' que deve ser única para aquele JSX retornado.
 
 - Isso porque uma lista de itens iterados são semelhantes e o React precisa de 
 uma forma rápida para identificar qual elemento o seu estado foi alterado para 
-ele poder atualizar sem precisar renderizar todos os itens novamente. Deve-se 
-colocar a 'key' no primeiro elemento retornado pela iteração.
+ele poder atualizar apenas aquele item sem precisar renderizar todos os itens 
+novamente. Deve-se colocar a 'key' no primeiro elemento retornado pela iteração, 
+ou seja, no elemento raiz.
 
 - Se a iteração retornar mais de um elemento, esse retorno deve ter um elemento 
 raiz que irá agrupar todos esses filhos, pois é necessário que o elemento 'pai'

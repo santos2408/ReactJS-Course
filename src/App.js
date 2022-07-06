@@ -24,6 +24,10 @@ class App extends Component {
     ]
   }
 
+  componentDidMount() {
+    
+  }
+
   render() {
     const { posts } = this.state
 
