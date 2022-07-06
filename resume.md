@@ -117,3 +117,31 @@ raiz que irá agrupar todos esses filhos, pois é necessário que o elemento 'pa
 contenha a key para o React identificar.
 
 ## Lifecycle Methods (Métodos de Ciclo de Vida)
+
+- Já vimos que quando desejamos observar o estado de um componente, usamos o 
+'state' junto com o método 'setState' para realizar uma nova renderização a cada 
+vez que o state do componente é alterado.
+
+- Em aplicações com muitos componentes, é imporante limparmos os recursos 
+utilizados pelos componentes sempre que eles são destruídos, ou seja, não estejam 
+sendo mais usados, garantindo alocação de recursos apenas para os componentes em 
+uso.
+
+- Cada componente possui um ciclo de vida, com cada ciclo tendo seus métodos, 
+chamados de funções de ciclos de vida. As fases do ciclo de vida são: montagem, 
+atualização e destruição.
+
+- componentDidMount(): fase de montagem, função que é executada logo após a 
+montagem do componente pelo render(), ideal para realizarmos chamadas a API's, 
+adicionar contadores e outras coisas que devem ser executadas de forma primária.
+
+- componentDidUpdate(): fase de atualização, função é executada imediamente após 
+alguma atualização ocorrer, podemos usar o setState diretamente nela, mas atente-se 
+para o motivo da implementação, pois pode gerar um loop infinito caso não seja o 
+que você deseja. Se não deseja loop no state, encapsule o código numa condição.
+
+- componentDidUpdate(): invocado imediatamente antes da desmontagem ou destruição 
+de um componente, qualquer limpeza necessária é recomendado ser executada dentro 
+desse método, como cancelar timers, requisições ou outras coisas. Vale lembrar que, 
+uma vez que a instância do componente foi desmontada, ela nunca será montada de novo, 
+portanto evite utilziar setState() dentro dela.
